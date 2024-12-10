@@ -8,16 +8,11 @@ class Turno {
 }
 
 
-module.exports = { Turno };
-
-
-
-
-class Turno {
-    constructor(dia, turno, libre) {
-        this.dia = dia
-        this.turno = turno
-        this.libre = libre
+class Cliente {
+    constructor(nombre, dni, telefono) {
+        this.nombre = nombre
+        this.dni = dni
+        this.telefono = telefono
     }
 
     // mostrarTurno(){
@@ -29,4 +24,4 @@ class Turno {
 
 // miTurno.mostrarTurno();
 
-module.exports = {Turno};
+module.exports = {Turno, Cliente};
