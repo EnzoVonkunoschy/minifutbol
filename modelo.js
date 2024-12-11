@@ -1,3 +1,4 @@
+const { json } = require('express')
 const fs = require('fs')
 
 function nuevoTurno(data){
@@ -12,17 +13,16 @@ function nuevoTurno(data){
 
     fs.writeFileSync('./db/turnos.txt',JSON.stringify(turnos))
 }
-function nuevoCliente(data){
-    console.log("--Modelo--")
-    let str_clientes = fs.readFileSync('./db/clientes.txt','utf-8')
+
+function nuevoCliente(datos){
+    console.log("--Modelo--");
+    let str_cliente = fs.readFileSync('./db/clientes.txt', 'utf-8')
     let clientes = []
-    if(str_clientes){
-        clientes = JSON.parse(str_clientes)
+    if(str_cliente){
+        clientes = JSON.parse(str_cliente)
     }
-
-    clientes.push(data)
-
+    clientes.push(datos)
     fs.writeFileSync('./db/clientes.txt',JSON.stringify(clientes))
 }
 
-module.exports = {nuevoTurno}
+module.exports = {nuevoTurno, nuevoCliente}

@@ -15,4 +15,12 @@ function nuevoTurno(data){
     }
 }
 
-module.exports = {nuevoTurno}
+function nuevoCliente(datos){
+    console.log("--Seguridad--")
+    console.log(datos)
+    if(datos.token == "lkjrt4v3wmtiqoprmmor98"){
+        Controlador.nuevoCliente(datos)
+    }
+}
+
+module.exports = {nuevoTurno, nuevoCliente}

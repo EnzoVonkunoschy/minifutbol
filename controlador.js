@@ -13,18 +13,11 @@ function nuevoTurno(data) {
     }
 }
 
-function nuevoCliente(data) {
-    try {
-        console.log("--Controlador--");
-        if (!data.nombre || !data.dni || !data.telefono) {
-            throw new Error("Datos incompletos para crear un cliente.");
-        }
-        const unCliente = new Clases.Cliente(data.nombre, data.dni, data.telefono);
-        console.log(unCliente);
-        Modelo.nuevoCliente(unCliente);
-    } catch (error) {
-        console.error("Error en nuevoCliente:", error.message);
-    }
+function nuevoCliente(datos){
+    console.log("--Controlador--")
+    const unCliente = new Clases.Cliente(datos.nombre, datos.dni, datos.telefono)
+    console.log(unCliente)
+    Modelo.nuevoCliente(unCliente)
 }
 
-module.exports = {nuevoTurno,nuevoCliente}
+module.exports = {nuevoTurno, nuevoCliente}
