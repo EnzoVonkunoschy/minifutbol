@@ -1,5 +1,5 @@
-const Clases = require('./clases.js')
-const modelo = require('./modelo.js')
+const Clases = require('./clases.js');
+const modelo = require('./modelo.js');
 
 
 
@@ -12,7 +12,7 @@ function nuevoTurno(data){
         console.log(unTurno);
         modelo.nuevoTurno (unTurno);
     }catch (error){
-        console.error("error al crear un nueco turno: ", error.message)
+        console.error("error al crear un nueco turno: ", error.message);
 
     }
 }
