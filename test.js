@@ -1,11 +1,17 @@
-const Clases = require('./clases.js')
+const { Turno } = require('./clases.js')
 
-function testCliente(){
+function testTurno(){
     const miTurno = new Turno("lunes",2,true)
-    console.log(miTurno.dia == 'lunes');
-    console.log(miTurno.hora == 2);
+    console.log(miTurno.dia == 'lunes')
+    console.log(miTurno.hora == 2)
     console.log(miTurno.libre == true)
-
+}
+function testCliente() {
+    const miTurno = new Turno("lunes", 2, true);
+    console.log(miTurno.dia === 'lunes');
+    console.log(miTurno.hora === 2);
+    console.log(miTurno.libre === true);
 }
 
-testCliente()
+testCliente();
+testTurno();
