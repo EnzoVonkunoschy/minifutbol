@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 app.get ('/',(req, res)=>{
-    //res.send('<h1>Hola desde servidor Node</p>')
+
     res.render('index.ejs',{url : "http://localhost:3000"})
 })
 
@@ -23,4 +23,4 @@ app.post('/nuevoturno',(req, res)=>{
 })
 
 const PORT = 3000
-app.listen(PORT, ()=>{console.log(`Escuchando en el puerto  ${PORT} `)})
+app.listen(PORT, ()=>{console.log(`Escuchando en el puerto ${PORT}`)})
