@@ -24,7 +24,7 @@ app.post('/menu', (req, res) => {
 
     // Validación de usuario, contraseña y token
     /**
-     * Validación
+     * Validación:
      * - El usuario debe ser "admin"
      * - La contraseña debe ser "admin"
      * - El token debe coincidir con el valor definido
