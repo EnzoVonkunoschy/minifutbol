@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <h1>Minifutbo iES-9024</h1>
+    
+    <form action='<%=url%>/nuevoturno' method="POST">
+        <p><label>Dia:&nbsp;</label><input type="date" name="dia"></p>
+        <p><label>Turno:&nbsp;</label><input type="number" name="turno"></p>
+        <p>
+            <label>Estado:&nbsp;</label>
+            <select name="libre">
+                <option value="libre"  >Libre  </option>
+                <option value="ocupado">Ocupado</option>
+            </select>
+        </p>
+        <input type="hidden" name="token" value="lkjrt4v3wmtiqoprmmor98">
+        <input type="submit" value="Agregar Turno">
+    </form>
+     
+
+</body>
+</html>
