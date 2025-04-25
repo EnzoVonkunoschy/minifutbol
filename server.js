@@ -15,14 +15,16 @@ app.get ('/',(req, res)=>{
     res.render('login.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
 })
 
-app.post ('/menu',(req, res)=>{
-    console.log(req.body)
-    if(true){  // Requerimiento 002 req.body.token == "..." validar que el token sea el correcto.
-        res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
-    }else{
-        res.render('menu.ejs',{url : "http://localhost:3000", token:""})
+
+app.post('/menu', (req, res) => {
+    console.log(req.body);
+    if (req.body.token === "lkjrt4v3wmtiqoprmmor98") { // Requerimiento 002
+        res.render('menu.ejs', { url: "http://localhost:3000", token: "lkjrt4v3wmtiqoprmmor98" });
+    } else {
+        res.render('menu.ejs', { url: "http://localhost:3000", token: "" });
     }
-})
+});
+
 
 // --- Usuarios ---------------------------------------
 
