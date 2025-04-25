@@ -8,15 +8,38 @@
 <body>
     <p>Este es el menú general.</p>
 
+    <!-- Formulario que redirige a la sección "Clientes" mediante método POST -->
     <form action="<%=url%>/clientes" method="POST">
+        <!-- Campo oculto que envía el token de seguridad al servidor -->
         <input type="hidden" name="token" value="<%=token%>">
+        <!-- Botón que envía el formulario al servidor -->
         <input type="submit" value="Clientes">
     </form>
 
-
-    <button>Turnos  </button>
+    <!-- Botón que redirige a la sección "Turnos" -->
+    <button id="btnTurnos">Turnos</button>
     <script>
-        // Requerimiento 001  código para ir al menú de turnos.
+        // Se agrega un evento "click" al botón con id "btnTurnos"
+        document.getElementById("btnTurnos").addEventListener("click", function () {
+            // Crea un nuevo formulario HTML de forma dinámica
+            const form = document.createElement("form");
+            form.method = "POST"; // Método de envío
+            form.action = "<%=url%>/turnos"; // URL del servidor que recibe el formulario
+
+            // Crea un input oculto con el token de seguridad
+            const tokenInput = document.createElement("input");
+            tokenInput.type = "hidden";
+            tokenInput.name = "token";
+            tokenInput.value = "<%=token%>"; // Valor del token insertado desde el servidor
+            
+            // Agrega el campo de token al formulario
+            form.appendChild(tokenInput);
+            
+            // Agrega el formulario al documento y lo envía automáticamente
+            document.body.appendChild(form);
+            form.submit();
+        });
     </script>
+
 </body>
 </html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Turnos</title>
+</head>
+<body>
+    <h1>Menú de Turnos</h1>
+    <p>Token recibido: <%= token %></p>
+
+    <form action="<%= url %>/nuevoturno" method="POST">
+        <input type="hidden" name="token" value="<%= token %>">
+        <input type="text" name="nombre" placeholder="Nombre del turno">
+        <input type="submit" value="Crear turno">
+    </form>
+</body>
+</html>
