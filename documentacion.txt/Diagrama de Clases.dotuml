@@ -1,0 +1,50 @@
+ClassDiagram {
+
+ class Turno {
+    dia:String
+    hora:int
+    libre:boolean;
+    cliente: Cliente
+
+    Turno(String,int,boolean)
+    static fromJSON(string):void
+
+    setDia(name:String)
+    getDia():String
+
+    setHora(int):void
+    getHora():int
+
+    setLibre(boolean):void
+    getLibre():boolean
+
+    setCliente(Cliente):void
+    getCliente():Cliente
+
+    equals(Turno):boolan
+
+
+ }
+
+    class Cliente{
+        nombre:string
+        dni:int
+        telefono:string
+
+        Cliente(string, int, string):void
+
+        setNombre(string):void
+        getNombre():string
+
+        setDni(int):void
+        getDni():int
+
+        setTelefono(string):void
+        getTelefono():string
+
+        static fromJSON(string):Cliente
+    }
+
+    Turno "1" --> "1" Cliente
+
+}
