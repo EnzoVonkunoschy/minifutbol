@@ -13,8 +13,11 @@
         <input type="submit" value="Clientes">
     </form>
 
-
-    <button>Turnos  </button>
+    <form action="<%=url%>/turnos">
+        <input type="hidden" name="token" value="<%=token%>">
+        <input type="submit" value="turno">
+    </form>
+    
     <script>
         // Requerimiento 001  código para ir al menú de turnos.
     </script>

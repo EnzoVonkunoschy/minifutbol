@@ -15,14 +15,34 @@ app.get ('/',(req, res)=>{
     res.render('login.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
 })
 
-app.post ('/menu',(req, res)=>{
-    console.log(req.body)
-    if(true){  // Requerimiento 002 req.body.token == "..." validar que el token sea el correcto.
-        res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
-    }else{
-        res.render('menu.ejs',{url : "http://localhost:3000", token:""})
+// Ruta que recibe los datos del formulario de login
+app.post('/menu', (req, res) => {
+    // Extraemos los datos enviados desde el formulario (login.ejs)
+    const { usuario, contrasena, token } = req.body;
+    // Definimos el valor correcto del token que se debe verificar
+    const tokenCorrecto = "lkjrt4v3wmtiqoprmmor98";
+
+    // Validación de usuario, contraseña y token
+    /**
+     * Validación:
+     * - El usuario debe ser "admin"
+     * - La contraseña debe ser "admin"
+     * - El token debe coincidir con el valor definido
+     */
+    if (usuario === "admin" && contrasena === "admin" && token === tokenCorrecto) {
+        // Si todo es correcto, mostramos la vista 'menu.ejs' y pasamos el token y la url
+        res.render('menu.ejs', {
+            url: "http://localhost:3000",
+            token: tokenCorrecto
+        });
+    } else {
+        // Si los datos no son válidos, se muestra un mensaje de error directamente
+        res.send(`
+            <h2>Usuario, contraseña o token incorrectos</h2>
+            <a href="/">Volver al login</a>
+        `);
     }
-})
+});
 
 // --- Usuarios ---------------------------------------
 
@@ -64,11 +84,6 @@ app.post('/nuevocliente',(req, res)=>{
 
 // --- Turnos ------------------------------------------
 
-app.get('/turnos', (req, res)=>{  // Requerimiento 001
-    console.log(req.headers.token)
-    console.log(req.body)
-    res.send('<p>Menú de Turnos</p>')
-})
 
 app.post('/nuevoturno',(req, res)=>{
     console.log(req.body)

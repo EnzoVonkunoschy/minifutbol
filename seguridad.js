@@ -12,9 +12,11 @@ function nuevoTurno(data){
 
     if(data.token == "lkjrt4v3wmtiqoprmmor98"){
         Controlador.nuevoTurno(data)
+        return {success: true}
+    }{
+        return {success: false}
     }
-}
-
+} 
 
 function nuevoCliente(data){
     console.log("--seguridad--")

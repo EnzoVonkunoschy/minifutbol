@@ -12,6 +12,7 @@ function nuevoTurno(data){
     turnos.push(data)
 
     fs.writeFileSync('./db/turnos.txt',JSON.stringify(turnos))
+    return {success: true}
 }
 
 function nuevoCliente(data){
