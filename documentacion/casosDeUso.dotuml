@@ -1,0 +1,21 @@
+UseCaseDiagram{
+actor enzo as 'Enzo'
+
+system 'minifutbol' as sys{
+    usecase login as 'login'
+    usecase menu  as 'menu'
+    
+    usecase nuevoCliente as 'Nuevo cliente'
+    usecase listarClientes as 'Listar clientes'
+
+    usecase nuevoTurno as 'Nuevo turno'
+    usecase listarTurnos as 'Listar turnos'
+}
+
+enzo -- login
+login -e-> menu
+menu -e-> nuevoCliente
+menu -e-> listarClientes
+menu -e-> nuevoTurno
+menu -e-> listarTurnos
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Este es el menú general.</p>
+
+    <form action="<%=url%>/clientes" method="POST">
+        <input type="hidden" name="token" value="<%=token%>">
+        <input type="submit" value="Clientes">
+    </form>
+
+    <form action="<%=url%>/turnos" method="POST">
+        <input type="hidden" name="token" value="<%=token%>">
+        <input type="submit" value="turno">
+    </form>
+    
+    <script>
+        // Requerimiento 001  código para ir al menú de turnos.
+    </script>
+</body>
+</html>

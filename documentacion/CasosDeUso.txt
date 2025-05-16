@@ -1,0 +1,41 @@
+
+cu01
+Login incorrecto:
+    Precondiciones:
+    Acciones:
+        -Completar los campos con valores al azar
+        -[Aceptar]
+    Postcondiciones:
+        -Vista de "Usuario, contraseña o token incorrectos"
+
+cu02
+Login correcto:
+    Precondiciones:
+    Acciones:
+        -Completar los campos con valores correctos
+        -[Aceptar]
+    Postcondiciones:
+        -Vista de "Menú General"
+
+cu03
+Nuevo cliente:
+    Precondiciónes:
+        -Vista en menú general.
+    Acciones:
+        -Seleccionar [Clientes]
+        -Completar campos
+        -[Agregar Cliente]<-botón
+    Postcondiciones:
+        -La aplicación vuelve a menú general.
+        -Cliente debe estar agregado en clientes.txt
+cu04
+Nuevo turno:
+    Precondiciones:
+        -Vista en menú general.
+    Acciones:
+        -Seleccionar [Turnos]
+        -Completar los campos
+        -[Agregar Turno]<-botón
+    Postcondiciones:
+        -json con atributos del objeto turno
+        

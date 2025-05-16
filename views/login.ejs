@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Minifutbo iES-9024</h1>
+    
+    <form action='<%=url%>/menu' method="POST">
+        <p><label>Usuario:&nbsp;    </label><input type="text"     name="usuario">   </p>
+        <p><label>Constraseña:&nbsp;</label><input type="password" name="contrasena"></p>
+
+        <input type="hidden" name="token" value="<%=token%>">
+        <input type="submit" value="Aceptar">
+    </form>
+    
+</body>
+</html>
