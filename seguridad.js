@@ -31,4 +31,8 @@ function nuevoCliente(data){
     
 }
 
-module.exports = {nuevoTurno, nuevoCliente}
+function dameClientes(data){
+    Controlador.dameClientes()
+}
+
+module.exports = {dameClientes,nuevoTurno, nuevoCliente}

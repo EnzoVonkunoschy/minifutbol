@@ -36,5 +36,9 @@ function nuevoCliente(data) {
     return {success: true}
 }
 
-module.exports = {nuevoTurno, nuevoCliente}
+function dameClientes(){
+    return Modelo.getClientes()
+}
+
+module.exports = {dameClientes, nuevoTurno, nuevoCliente}
 

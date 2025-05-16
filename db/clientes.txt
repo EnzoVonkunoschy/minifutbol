@@ -1,1 +1,1 @@
-[{"nombre":"Juan Perez","dni":"75757575","telefono":"12345678"},{"nombre":"1","dni":"1","telefono":"1"},{"nombre":"1","dni":"1","telefono":"1"},{"nombre":"1","dni":"1","telefono":"1"}]
+[{"nombre":"Juan Perez","dni":"75757575","telefono":"12345678"},{"nombre":"1","dni":"1","telefono":"1"},{"nombre":"1","dni":"1","telefono":"1"},{"nombre":"1","dni":"1","telefono":"1"},{"nombre":"Coco Jurado","dni":"48985","telefono":"1234567811"},{"nombre":"Pedro","dni":"75757575","telefono":"43434343"}]

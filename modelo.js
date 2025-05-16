@@ -31,4 +31,11 @@ function nuevoCliente(data){
     }
 }
 
-module.exports = {nuevoTurno, nuevoCliente}
+function getClientes(){
+    const cliente1 = new Clases.Cliente("Enzo Adrián 1",12345671,87654321)
+    const cliente2 = new Clases.Cliente("Enzo Adrián 2",12345672,87654322)
+    const cliente3 = new Clases.Cliente("Enzo Adrián 3",12345673,87654323)
+    const arrayClientes = [cliente1, cliente2, cliente3]
+    return arrayClientes
+}
+module.exports = {getClientes, nuevoTurno, nuevoCliente}
