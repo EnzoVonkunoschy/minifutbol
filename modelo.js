@@ -32,10 +32,19 @@ function nuevoCliente(data){
 }
 
 function getClientes(){
-    const cliente1 = new Clases.Cliente("Enzo Adrián 1",12345671,87654321)
-    const cliente2 = new Clases.Cliente("Enzo Adrián 2",12345672,87654322)
-    const cliente3 = new Clases.Cliente("Enzo Adrián 3",12345673,87654323)
-    const arrayClientes = [cliente1, cliente2, cliente3]
-    return arrayClientes
+   let clientes=[];
+   try{
+    const str_cliente = fs.readFileSync('./db/clientes.txt','utf-8')
+    if(str_cliente){
+      const arr = JSON.parse(str_cliente)
+      clientes = arr.map(obj => {
+        const cliente = new Clases.Cliente(obj.nombre, obj.dni, obj.telefono);
+        return cliente;
+      })
+    }
+   } catch(e){
+    clientes = []
+   }
+   return clientes;
 }
 module.exports = {getClientes, nuevoTurno, nuevoCliente}

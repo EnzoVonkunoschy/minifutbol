@@ -73,9 +73,11 @@ app.get ('/cliente',(req, res)=>{
 })
 
 app.post('/dameClientes', (req, res)=>{
-    let clientes = Seguridad.dameClientes()
-    res.render('listadoclientes.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98",clientes: clientes})
-})
+    console.log(req.body)
+    let resultado = Seguridad.dameClientes(req.body)
+   if(resultado.success){
+    res.render('listadoclientes.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98",clientes: resultado.clientes})
+}})
 
 /* 
 app.post('/nuevocliente',(req, res)=>{

@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de clientes</title>
+</head>
+<body>
+    <h1>Listado de clientes</h1>
+
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>DNI</th>
+            <th>Telefono</th>
+        </tr>
+        <% clientes.forEach(cliente => { %>
+            <tr>
+                <td><%= cliente.nombre %></td>
+                <td><%= cliente.dni %></td>
+                <td><%= cliente.telefono %></td>
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

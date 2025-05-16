@@ -32,7 +32,16 @@ function nuevoCliente(data){
 }
 
 function dameClientes(data){
-    Controlador.dameClientes()
-}
+console.log("--seguridad--")
+    console.log("data")
+    console.log(data)
+  if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+     const clientes = Controlador.dameClientes(data)
+     return {success: true, clientes: clientes}
+    }else{
+        return {success: false}
+    }
+    }
+
 
 module.exports = {dameClientes,nuevoTurno, nuevoCliente}
