@@ -31,4 +31,16 @@ function nuevoCliente(data){
     
 }
 
-module.exports = {nuevoTurno, nuevoCliente}
+function dameClientes(data) {
+    console.log("--seguridad--")
+    console.log("data")
+    console.log(data)
+    if (data.token == 'lkjrt4v3wmtiqoprmmor98') {
+        const clientes = Controlador.dameClientes()
+        return { success: true, clientes: clientes }
+    } else {
+        return { success: false }
+    }
+}
+
+module.exports = { nuevoTurno, nuevoCliente, dameClientes }
