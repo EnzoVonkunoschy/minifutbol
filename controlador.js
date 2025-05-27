@@ -5,7 +5,7 @@ function nuevoTurno(data) {
     try {
         console.log("--Controlador--");
         const libre = data.libre === 'Libre';
-        const unTurno = new Clases.Turno(data.dia, data.turno, libre);
+        const unTurno = {dia: data.dia, hora: data.turno, libre: libre, cliente: data.cliente} 
         console.log(unTurno);
         Modelo.nuevoTurno(unTurno);
     } catch (error) {

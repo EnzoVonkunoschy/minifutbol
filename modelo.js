@@ -9,7 +9,8 @@ function nuevoTurno(data){
         turnos = JSON.parse(str_turnos)
     }
 
-    turnos.push(data)
+    const nuevoTurno = {dia: data.dia, hora: data.hora, libre: data.libre , cliente: data.cliente}
+    turnos.push(nuevoTurno)
 
     fs.writeFileSync('./db/turnos.txt',JSON.stringify(turnos))
     return {success: true}

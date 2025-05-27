@@ -44,6 +44,10 @@ app.post('/menu', (req, res) => {
     }
 });
 
+app.post ('/menuGeneral', (req, res)=>{
+    res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+})
+
 app.post('/dameClientes', (req, res)=>{
     let resultado = Seguridad.dameClientes(req.body)
    if(resultado.success){
@@ -90,8 +94,10 @@ app.post('/nuevocliente',(req, res)=>{
 
 // --- Turnos ------------------------------------------
 app.post('/turnos',(req, res)=>{
-    res.render('index.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
-})
+    let resultado = Seguridad.dameClientes(req.body)
+    if(resultado.success){
+    res.render('index.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98",clientes: resultado.clientes})
+}})
 
 app.post('/nuevoturno',(req, res)=>{
     console.log(req.body)

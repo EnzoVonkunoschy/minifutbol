@@ -4,7 +4,7 @@ class Turno {
         this.dia = dia;
         this.hora = hora;
         this.libre = libre;
-        //this.cliente = Cliente;
+        this.cliente = cliente;
     }
 
     get dia(){
