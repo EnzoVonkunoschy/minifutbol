@@ -4,8 +4,25 @@ const Modelo = require('./modelo.js')
 function nuevoTurno(data) {
     try {
         console.log("--Controlador--");
-        const libre = data.libre === 'Libre';
-        const unTurno = {dia: data.dia, hora: data.turno, libre: libre, cliente: data.cliente} 
+        const libre = data.libre === 'libre';
+        if (!data.dia || !data.turno || !data.libre || !data.cliente) {
+            throw new Error("Datos incompletos para crear un turno.");
+        }
+        //Expresion regular para extraer los datos del string cliente
+        const extrae = /^(.+?) - DNI: (\d+) - Tel: (\d+)$/;
+        const match = data.cliente.match(extrae);
+        //Si no hay coincidencias tira un error
+        if (!match) {
+            throw new Error("Formato de cliente inválido.");
+        }
+        //Si hay match guardo los datos
+        const nombre = match[1];
+        const dni = match[2];
+        const telefono = match[3];
+        //Creo el cliente y el turno
+        const cliente = new Clases.Cliente(nombre, dni, telefono);
+        const unTurno = new Clases.Turno(data.dia, data.turno, data.libre, cliente);
+        //Imprimo el turno y lo guardo en el modelo
         console.log(unTurno);
         Modelo.nuevoTurno(unTurno);
     } catch (error) {
