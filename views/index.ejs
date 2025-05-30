@@ -20,7 +20,7 @@
                 <option value="ocupado">Ocupado</option>
             </select>
         </p>
-        <input type="hidden" name="token" value="lkjrt4v3wmtiqoprmmor98">
+        <input type="hidden" name="token" value="<%=token%>">
         <input type="submit" value="Agregar Turno">
     </form>
      
@@ -37,6 +37,7 @@
 
     <form action="<%=url%>/volver" method="post">
         <input type="submit" value="volver">
+        <input type="hidden" name="token" value="<%=token%>">
     </form>
     
 
