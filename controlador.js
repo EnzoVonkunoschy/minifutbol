@@ -4,15 +4,18 @@ const Modelo = require('./modelo.js')
 function nuevoTurno(data) {
     try {
         console.log("--Controlador--");
-        const libre = data.libre === 'Libre';
+        const libre = data.libre === 'Libre' || data.libre === true;
         const unTurno = new Clases.Turno(data.dia, data.turno, libre);
+      
+        if (data.cliente) {
+            unTurno.cliente = data.cliente;
+        }
         console.log(unTurno);
         Modelo.nuevoTurno(unTurno);
     } catch (error) {
         console.error("Error al crear un nuevo turno:", error.message);
     }
 }
-
 function nuevoCliente(data) {
     try {
         console.log("--Controlador--");

@@ -7,6 +7,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended : false}))
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.set('view engine', 'ejs');
 
 // --- Menú login y menú --------------------------------
@@ -14,6 +16,12 @@ app.set('view engine', 'ejs');
 app.get ('/',(req, res)=>{
     res.render('login.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
 })
+
+app.get('/menu', (req, res) => {
+    res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+})
+
+
 
 // Ruta que recibe los datos del formulario de login
 app.post('/menu', (req, res) => {
@@ -89,9 +97,17 @@ app.post('/nuevocliente',(req, res)=>{
 
 
 // --- Turnos ------------------------------------------
-app.post('/turnos',(req, res)=>{
-    res.render('index.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
-})
+app.post('/turnos', (req, res) => {
+    let resultado = Seguridad.dameClientes({token: "lkjrt4v3wmtiqoprmmor98"});
+    let clientes = resultado.success ? resultado.clientes : [];
+    res.render('index.ejs', {
+        url: "http://localhost:3000",
+        token: "lkjrt4v3wmtiqoprmmor98",
+        clientes: clientes
+    });
+});
+
+
 
 app.post('/nuevoturno',(req, res)=>{
     console.log(req.body)

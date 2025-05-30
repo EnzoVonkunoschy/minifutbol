@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <title>Menu</title>
+   
 </head>
 <body>
-    <p>Este es el menú general.</p>
+    <h1>Menu general</h1>
 
     <form action="<%=url%>/clientes" method="POST">
         <input type="hidden" name="token" value="<%=token%>">
-        <input type="submit" value="Clientes">
+        <button class="button is-success is-rounded" type="submit">Clientes</button>
     </form>
 
     <form action="<%=url%>/turnos" method="POST">
         <input type="hidden" name="token" value="<%=token%>">
-        <input type="submit" value="turno">
-    </form>
+       <button class="button is-success is-rounded" type="submit">Turno</button>
+    </form> 
 
-    <br><br>
+
     <form action="<%=url%>/dameClientes" method="POST">
         <input type="hidden" name="token" value="<%=token%>">
-        <input type="submit" value="Listar Clientes">
+        <button class="button is-success is-rounded" type="submit">Listar Clientes</button>
     </form>
-    
+   
     <script>
         // Requerimiento 001  código para ir al menú de turnos.
     </script>

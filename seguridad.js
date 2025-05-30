@@ -11,7 +11,19 @@ function nuevoTurno(data){
     console.log(data)
 
     if(data.token == "lkjrt4v3wmtiqoprmmor98"){
+        const resultado = Controlador.dameClientes({});
+        const clientes = resultado || [];
+        const clienteEncontrado = clientes.find(c => c.dni == data.cliente);
+
+        if (clienteEncontrado) {
+            data.cliente = clienteEncontrado; // Asocia el objeto cliente al turno
+        } else {
+            data.cliente = null; 
+        }
+
+        
         Controlador.nuevoTurno(data)
+        
         return {success: true}
     }{
         return {success: false}

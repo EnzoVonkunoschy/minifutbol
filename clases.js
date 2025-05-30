@@ -7,31 +7,31 @@ class Turno {
         //this.cliente = Cliente;
     }
 
-    get dia(){
+    get Dia(){
         return this.dia
     }
-    set dia(nuevoDia){
+    set Dia(nuevoDia){
         this.dia = nuevoDia
     }
 
-    get hora(){
+    get Hora(){
         return this.hora
     }
-    set hora(nuevaHora){
+    set Hora(nuevaHora){
         this.hora = nuevaHora
     }
 
-    get libre(){
+    get Libre(){
         return this.libre
     }
-    set libre(nuevoEstado){
+    set Libre(nuevoEstado){
         this.libre = nuevoEstado
     }              
 
-    get cliente(){
+    get Cliente(){
         return this.cliente
     }
-    set cliente(nuevoCliente){
+    set Cliente(nuevoCliente){
         this.cliente = nuevoCliente
     }
 

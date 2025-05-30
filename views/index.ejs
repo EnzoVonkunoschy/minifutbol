@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Turno</title>
 </head>
 <body>
 
-
-    <h1>Minifutbo iES-9024</h1>
+    <h1>Minifutbol IES-9024</h1>
     
-    <form action='<%=url%>/nuevoturno' method="POST">
+    <form action='<%= url %>/nuevoturno' method="POST">
         <p><label>Dia:&nbsp;</label><input type="date" name="dia"></p>
         <p><label>Turno:&nbsp;</label><input type="number" name="turno"></p>
         <p>
             <label>Estado:&nbsp;</label>
             <select name="libre">
-                <option value="libre"  >Libre  </option>
+                <option value="libre">Libre</option>
                 <option value="ocupado">Ocupado</option>
+            </select>
+        </p>
+        <p>
+            <label>Cliente:&nbsp;</label>
+            <select name="cliente">
+                <% for (let i = 0; i < clientes.length; i++) { %>
+                    <option value="<%= clientes[i].dni %>">
+                        <%= clientes[i].nombre %>
+                    </option>
+                <% } %>
             </select>
         </p>
         <input type="hidden" name="token" value="lkjrt4v3wmtiqoprmmor98">
         <input type="submit" value="Agregar Turno">
     </form>
-     
-    <!--        
-    <h1>Minifutbol IES-9024</h1>
-    <form action='<%=url%>/nuevocliente' method="POST">
-        <p><label>nombre:&nbsp;</label><input type="text" name="nombre"> </p>
-        <p><label>dni:&nbsp;</label><input type="number" name="dni"> </p>
-        <p><label>teléfono:&nbsp;</label><input type="tel" name="telefono"> </p>
-        <button type="submit">Enviar</buton>
-    </form>-->
-    
+
+    <button type="button" onclick="window.location.href='/menu'">Volver</button>
 
 </body>
 </html>
