@@ -90,14 +90,20 @@ app.post('/nuevocliente',(req, res)=>{
 
 // --- Turnos ------------------------------------------
 app.post('/turnos',(req, res)=>{
-    res.render('index.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+    let resultado = Seguridad.dameClientes(req.body)
+    if(resultado.success){
+        res.render('index.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98", clientes: resultado.clientes})
+    }
+    
 })
 
 app.post('/nuevoturno',(req, res)=>{
     console.log(req.body)
     Seguridad.nuevoTurno(req.body)
 
-    res.send(JSON.stringify(req.body))
+    res.send(JSON.stringify(req.body),)
+
+    
 })
 
 

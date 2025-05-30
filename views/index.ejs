@@ -20,6 +20,19 @@
                 <option value="ocupado">Ocupado</option>
             </select>
         </p>
+        <p>
+            <label>Cliente:&nbsp;</label>
+
+            <select name="cliente">
+                <% for (let i = 0; i < clientes.length; i++) { %>
+                <option value='<%- JSON.stringify(clientes[i]) %>'>
+                <%= clientes[i].nombre %> - <%= clientes[i].dni %> - <%= clientes[i].telefono %>
+                </option>
+                <% } %>
+            </select>
+
+        </p>    
+
         <input type="hidden" name="token" value="<%=token%>">
         <input type="submit" value="Agregar Turno">
     </form>

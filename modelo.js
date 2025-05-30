@@ -42,4 +42,5 @@ function getClientes(){
         }
         return clientes;
     }
+
 module.exports = {getClientes, nuevoTurno, nuevoCliente}

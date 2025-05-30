@@ -5,7 +5,10 @@ function nuevoTurno(data) {
     try {
         console.log("--Controlador--");
         const libre = data.libre === 'Libre';
-        const unTurno = new Clases.Turno(data.dia, data.turno, libre);
+        const objetoCliente = JSON.parse(data.cliente);
+
+        const unTurno = new Clases.Turno(data.dia, data.turno, libre, objetoCliente);
+        
         console.log(unTurno);
         Modelo.nuevoTurno(unTurno);
     } catch (error) {
