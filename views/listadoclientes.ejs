@@ -15,6 +15,7 @@
                 <th>Nombre</th>
                 <th>DNI</th>
                 <th>Teléfono</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,13 @@
                     <td><%= clientes[i].nombre %></td>
                     <td><%= clientes[i].dni %></td>
                     <td><%= clientes[i].telefono %></td>
+                    <td>
+                        <form action="/eliminarCliente" method="post">
+                            <input type="hidden" name="token" value="<%=token%>">
+                            <input type="hidden" name="dni" value="<%= clientes[i].dni %>">
+                            <input type="submit" value="Eliminar">
+                        </form>
+                    </td>
                 </tr>
             <% } %>
         </tbody>

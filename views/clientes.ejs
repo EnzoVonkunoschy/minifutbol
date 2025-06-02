@@ -8,10 +8,10 @@
 <body>
     <h1>Minifutbo iES-9024</h1>
     
-    <form action='<%=url%>/api/clientes' method="POST">
-        <p><label>Nombre:&nbsp;  </label><input type="text"   name="nombre"  > </p>
-        <p><label>Dni:&nbsp;     </label><input type="text"   name="dni"     > </p>
-        <p><label>Telefono:&nbsp;</label><input type="number" name="telefono"> </p>
+    <form id='formClientes' action='<%=url%>/api/clientes' method="POST">
+        <p><label>Nombre:&nbsp;  </label><input type="text"   name="nombre" id="nombre" > </p>
+        <p><label>Dni:&nbsp;     </label><input type="text"   name="dni" id="dni"   > </p>
+        <p><label>Telefono:&nbsp;</label><input type="number" name="telefono" id="telefono"> </p>
         <input type="hidden"  name="token" value="lkjrt4v3wmtiqoprmmor98">
         <input type="submit" value="Agregar Cliente">
     </form> 
@@ -20,5 +20,19 @@
         <input type="hidden" name="token" value="<%=token%>">
         <input type="submit" value="Volver">
     </form>
+
+    <script>
+        // Validación al enviar el formulario
+        document.getElementById('formClientes').addEventListener('submit', function(event) {
+            const nombre = document.getElementById('nombre').value.trim();
+            const dni = document.getElementById('dni').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+
+            if (!nombre || !dni || !telefono) {
+                alert('Debe completar todos los datos para agregar un cliente.');
+                event.preventDefault(); // Evita que se envíe el formulario
+            }
+        });
+    </script>
 </body>
 </html>

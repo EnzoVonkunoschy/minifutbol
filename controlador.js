@@ -57,5 +57,23 @@ function dameClientes(data){
     return Modelo.getClientes()
 }
 
-module.exports = {dameClientes, nuevoTurno, nuevoCliente}
+function eliminarCliente(data) {
+    console.log("--Controlador--")
+    const dni = data.dni;
+    if (!dni) {
+        console.error("DNI no proporcionado para eliminar cliente.");
+        return { success: false, message: "DNI no proporcionado." };
+    }
+    const resultado = Modelo.eliminarCliente(dni);
+    
+    if (resultado.success) {
+        console.log(`Cliente con DNI ${dni} eliminado.`);
+        return { success: true };
+    } else {
+        console.error(`No se encontró un cliente con DNI ${dni}.`);
+        return { success: false, message: "Cliente no encontrado." };
+    }
+}
+
+module.exports = {eliminarCliente, dameClientes, nuevoTurno, nuevoCliente}
 
