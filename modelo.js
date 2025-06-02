@@ -16,6 +16,27 @@ function nuevoTurno(data){
         return {success: true}
     }
 }
+function getTurnos(){
+    let turnos = [];
+    const str_turnos = fs.readFileSync('./db/turnos.txt','utf-8')
+    if (str_turnos){
+        let arTurnos = JSON.parse(str_turnos)
+        for (let i = 0; i < arTurnos.length; i++){
+            let t = arTurnos[i]
+            let c = t.cliente;
+            let cliente = new Clases.Cliente(c.nombre, c.dni, c.telefono);
+            turnos.push(new Clases.Turno(t.dia, t.hora, t.libre, cliente))
+        }         
+    }
+    return turnos;
+}
+
+function setTurnos(turnos){
+    if(Array.isArray(turnos)){
+        fs.writeFileSync('./db/turnos.txt', JSON.stringify(turnos), 'utf-8')
+        return {success: true}
+    } 
+}
 
 function nuevoCliente(data){
     if(data instanceof Clases.Cliente){
@@ -53,9 +74,15 @@ function setClientes(clientes){
 }
 
 function eliminarCliente(dni){
+    //Elimino el cliente
     let clientes = getClientes()
     clientes = clientes.filter(cliente => cliente.dni !== dni)
     setClientes(clientes)
+    // Eliminar turnos del cliente
+    let turnos = getTurnos();
+    turnos = turnos.filter(turno => turno.cliente.dni !== dni);
+    setTurnos(turnos);
+    
     return {success: true}
 }
 module.exports = {eliminarCliente, setClientes, getClientes, nuevoTurno, nuevoCliente}
