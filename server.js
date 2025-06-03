@@ -89,7 +89,7 @@ app.post('/eliminarCliente'), (req, res) =>{
 
 app.post('/eliminarCliente', (req, res) => {
     const resultado = Seguridad.eliminarCliente(req.body);
-    res.render('listadoclientes.ejs', {url: "http://localhost:3000", token: "lkjrt4v3wmtiqoprmmor98",clientes: resultado.clientes});
+    res.render('menu.ejs', {url: "http://localhost:3000", token: "lkjrt4v3wmtiqoprmmor98",clientes: resultado.clientes});
 });
 
 /* 

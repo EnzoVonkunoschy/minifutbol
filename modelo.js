@@ -1,5 +1,6 @@
 const fs = require('fs')
 const Clases = require('./clases.js')
+const { json } = require('stream/consumers')
 
 function nuevoTurno(data){
     if(data instanceof Clases.Turno){
@@ -45,19 +46,36 @@ function getClientes(){
         return clientes;
     }
 
-    function eliminarCliente(data) {
+function setCliente(clientes){
+    if (Array.isArray(clientes)) {
+        fs.writeFileSync('./db/clientes.txt', JSON.stringify(clientes), 'utf-8');
+        return {success: true}
+    }
+}
 
-        let clientes = [];
-        const str_cliente = fs.readFileSync('./db/clientes.txt', 'utf-8');
-        let arClientes = JSON.parse(str_cliente);
-        for (let i = 0; i < arClientes.length; i++) {
-            let c = arClientes[i];
-            // Solo agregamos los clientes cuyo DNI sea diferente al que queremos eliminar
-            if (c.dni != data) {
-                clientes.push(c);
-            }
+
+function eliminarCliente(data){
+
+    // Eliminar Cliente 
+    let clientes = getClientes();
+    clientes = clientes.filter(cliente => cliente.dni != data)
+    setCliente(clientes)
+
+    // Eliminar Clientes asociados al turno
+    let turnos = []
+    const str_turnos = fs.readFileSync('./db/turnos.txt', 'utf-8');
+    let arTurnos = JSON.parse(str_turnos)
+    for (let i = 0; i < arTurnos.length; i++) {
+        let t = arTurnos[i]
+        if (t.cliente.dni != data) {
+            turnos.push(t);
         }
-        fs.writeFileSync('./db/clientes.txt', JSON.stringify(clientes));
-        return { success: true };
-    }   
+    }
+    fs.writeFileSync('./db/turnos.txt', JSON.stringify(turnos));
+
+    return { success: true };
+}
+
+
+
 module.exports = {getClientes, nuevoTurno, nuevoCliente, eliminarCliente}
