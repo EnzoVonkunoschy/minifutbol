@@ -112,8 +112,9 @@ app.post('/turnos',(req, res)=>{
 app.post('/nuevoturno',(req, res)=>{
     console.log(req.body)
     Seguridad.nuevoTurno(req.body)
-
-    res.send(JSON.stringify(req.body))
+    res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"}) 
+    
+    
 })
 
 
