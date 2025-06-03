@@ -1,7 +1,8 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const Seguridad = require('./seguridad.js')
+const Seguridad = require('./seguridad.js');
+const { url } = require('inspector');
 
 app.use(express.json());
 app.use(express.urlencoded({extended : false}))
@@ -81,6 +82,15 @@ app.post('/api/clientes', (req, res)=>{
 app.get ('/cliente',(req, res)=>{
     res.render('Cliente.ejs',{url : "http://localhost:3000"})
 })
+
+app.post('/eliminarCliente'), (req, res) =>{
+    res.render('cliente.ejs',{url: "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98", clientes: resultado.clientes})
+}
+
+app.post('/eliminarCliente', (req, res) => {
+    const resultado = Seguridad.eliminarCliente(req.body);
+    res.render('listadoclientes.ejs', {url: "http://localhost:3000", token: "lkjrt4v3wmtiqoprmmor98",clientes: resultado.clientes});
+});
 
 /* 
 app.post('/nuevocliente',(req, res)=>{

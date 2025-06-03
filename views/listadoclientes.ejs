@@ -24,6 +24,13 @@
                     <td><%= clientes[i].nombre %></td>
                     <td><%= clientes[i].dni %></td>
                     <td><%= clientes[i].telefono %></td>
+                    <td>
+                        <form action="<%=url%>/eliminarCliente" method="POST">
+                            <input type="hidden" name="dni" value="<%= clientes[i].dni %>">
+                            <input type="hidden" name="token" value="<%=token%>">
+                            <input type="submit" value="x">
+                        </form>
+                    </td>
                 </tr>
             <% } %>
         </tbody>

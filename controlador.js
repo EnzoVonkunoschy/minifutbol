@@ -57,5 +57,11 @@ function dameClientes(data){
     return Modelo.getClientes()
 }
 
-module.exports = {dameClientes, nuevoTurno, nuevoCliente}
+function eliminarCliente(data){
+    console.log("--Controlador--")
+    console.log(data)
+    return Modelo.eliminarCliente(data.dni)
+}
+
+module.exports = {dameClientes, nuevoTurno, nuevoCliente, eliminarCliente}
 

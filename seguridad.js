@@ -1,5 +1,6 @@
 const Controlador = require('./controlador.js')
 
+
 function nuevoTurno(data){
     console.log("--seguridad--")
     console.log(data)
@@ -46,4 +47,20 @@ function dameClientes(data){
     
 }
 
-module.exports = {dameClientes,nuevoTurno, nuevoCliente}
+function eliminarCliente(data){
+    console.log("--seguridad--")
+    console.log("data")
+    console.log(data)
+    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+        Controlador.eliminarCliente(data)
+        const clientes = Controlador.dameClientes(data)
+
+        return {success: true, clientes: clientes}
+
+    }else{
+        console.log("No se puede pudo eliminar el cliente")
+        return {success: false}
+    }
+}
+
+module.exports = {dameClientes,nuevoTurno, nuevoCliente, eliminarCliente}

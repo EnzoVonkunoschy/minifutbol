@@ -44,4 +44,20 @@ function getClientes(){
         }
         return clientes;
     }
-module.exports = {getClientes, nuevoTurno, nuevoCliente}
+
+    function eliminarCliente(data) {
+
+        let clientes = [];
+        const str_cliente = fs.readFileSync('./db/clientes.txt', 'utf-8');
+        let arClientes = JSON.parse(str_cliente);
+        for (let i = 0; i < arClientes.length; i++) {
+            let c = arClientes[i];
+            // Solo agregamos los clientes cuyo DNI sea diferente al que queremos eliminar
+            if (c.dni != data) {
+                clientes.push(c);
+            }
+        }
+        fs.writeFileSync('./db/clientes.txt', JSON.stringify(clientes));
+        return { success: true };
+    }   
+module.exports = {getClientes, nuevoTurno, nuevoCliente, eliminarCliente}
