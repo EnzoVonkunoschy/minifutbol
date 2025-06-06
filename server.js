@@ -82,6 +82,14 @@ app.get ('/cliente',(req, res)=>{
     res.render('Cliente.ejs',{url : "http://localhost:3000"})
 })
 
+app.post('/eliminarCliente', (req, res)=>{
+    console.log(req.body)
+     let respuesta = Seguridad.eliminarCliente(req.body)
+    if(respuesta.success){
+        res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+    }
+})
+
 /* 
 app.post('/nuevocliente',(req, res)=>{
     console.log(req.body)
@@ -101,9 +109,10 @@ app.post('/turnos',(req, res)=>{
 
 app.post('/nuevoturno',(req, res)=>{
     console.log(req.body)
-    Seguridad.nuevoTurno(req.body)
-
-    res.send(JSON.stringify(req.body))
+     let respuesta = Seguridad.nuevoTurno(req.body)
+    if(respuesta.success){
+        res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+    }
 })
 
 

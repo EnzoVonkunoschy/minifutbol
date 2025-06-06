@@ -46,4 +46,16 @@ function dameClientes(data){
     
 }
 
-module.exports = {dameClientes,nuevoTurno, nuevoCliente}
+function eliminarCliente(data){
+    console.log("--seguridad--")
+    console.log("data")
+    console.log(data)
+    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+        Controlador.eliminarCliente(data)
+        return {success: true}
+    }else{
+        return {success: false}
+    }
+}
+
+module.exports = {dameClientes,nuevoTurno, nuevoCliente, eliminarCliente}
