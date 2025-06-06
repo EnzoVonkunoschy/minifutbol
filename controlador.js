@@ -39,18 +39,11 @@ function nuevoCliente(data) {
         const unCliente = new Clases.Cliente(data.nombre, data.dni, data.telefono);
         console.log(unCliente);
         Modelo.nuevoCliente(unCliente);
+        return {success: true};
     } catch (error) {
         console.error("Error en nuevoCliente:", error.message);
+        return {success: false, message: error.message};
     }
-}
-
-function nuevoCliente(data) {
-    console.log("--Controlador--")
-
-    const unCliente = new Clases.Cliente(data.nombre,data.dni,data.telefono)
-    console.log(unCliente)
-    Modelo.nuevoCliente(unCliente)
-    return {success: true}
 }
 
 function dameClientes(data){
@@ -63,24 +56,21 @@ function dameTurno(data) {
 
 
 function eliminarCliente(data) {
-
-    console.log("--Controlador--")
-    console.log(data)
-    const clientes = Modelo.getClientes()
-    const clienteIndex = clientes.findIndex(c => String(c.dni) === String(data.dni));
+    console.log("--Controlador--");
     
+    const clientes = Modelo.getClientes();
+    //verifica si el cliente existe por DNI
+    const clienteIndex = clientes.findIndex(c => String(c.dni) === String(data.dni));
+    //Si el cliente existe lo elimina
     if (clienteIndex !== -1) {
+        //elimina al cliente del array usuando el indice 
         clientes.splice(clienteIndex, 1);
-        // Guardar los cambios en el archivo
-        const fs = require('fs');
-        fs.writeFileSync('./db/clientes.txt', JSON.stringify(clientes));
+        //llama el al array actualizado con setClientes
+        Modelo.setClientes(clientes);
         return { success: true };
     } else {
         return { success: false, message: "Cliente no encontrado." };
     }
-
-
-
 
 
 }

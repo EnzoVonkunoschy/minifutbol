@@ -1,21 +1,7 @@
 const fs = require('fs')
 const Clases = require('./clases.js')
 
-function nuevoTurno(data){
-    if(data instanceof Clases.Turno){
-        console.log("--Modelo--")
-        let str_turnos = fs.readFileSync('./db/turnos.txt','utf-8')
-        let turnos = []
-        if(str_turnos){
-            turnos = JSON.parse(str_turnos)
-        }
 
-        turnos.push(data)
-
-        fs.writeFileSync('./db/turnos.txt',JSON.stringify(turnos))
-        return {success: true}
-    }
-}
 
 function nuevoCliente(data){
     if(data instanceof Clases.Cliente){
@@ -44,4 +30,47 @@ function getClientes(){
         }
         return clientes;
     }
-module.exports = {getClientes, nuevoTurno, nuevoCliente}
+
+    function setClientes(clientes){
+        fs.writeFileSync('./db/clientes.txt', JSON.stringify(clientes));
+        return {success: true}
+    }
+
+//-----------------TURNOS-------------------
+
+function nuevoTurno(data){
+    if(data instanceof Clases.Turno){
+        console.log("--Modelo--")
+        let str_turnos = fs.readFileSync('./db/turnos.txt','utf-8')
+        let turnos = []
+        if(str_turnos){
+            turnos = JSON.parse(str_turnos)
+        }
+
+        turnos.push(data)
+
+        fs.writeFileSync('./db/turnos.txt',JSON.stringify(turnos))
+        return {success: true}
+    }
+}
+    function getTurnos(){
+        let turnos = [];
+        const str_turnos = fs.readFileSync('./db/turnos.txt','utf-8')
+        if (str_turnos){
+            let arTurnos = JSON.parse(str_turnos)
+            for (let i = 0; i < arTurnos.length; i++){
+                let t = arTurnos[i]
+                turnos.push(new Clases.Turno(t.dia, t.hora, t.libre, t.cliente))
+            }         
+        }
+        return turnos;
+    }
+
+function setTurnos(){
+    fs.writeFileSync('./db/turnos.txt', JSON.stringify(turnos));
+    return {success: true}
+}
+
+
+
+module.exports = { getClientes, setClientes, nuevoTurno, setTurnos, getTurnos, nuevoCliente }

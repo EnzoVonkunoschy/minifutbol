@@ -11,10 +11,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 // Middleware global para loguear cada petición y método
-app.use((req, res, next) => {
-    console.log('Método:', req.method, 'Ruta:', req.url);
-    next();
-});
+//app.use((req, res, next) => {
+  //  console.log('Método:', req.method, 'Ruta:', req.url);
+   // next();
+//});
 
 // --- Menú login y menú --------------------------------
 
@@ -101,7 +101,10 @@ app.get ('/cliente',(req, res)=>{
     res.render('Cliente.ejs',{url : "http://localhost:3000"})
 })
 
+
+//eliminar cliente 
 app.post('/btneliminarCliente', (req, res) => {
+    //elimina el cliente seleccionado
     const respuesta = Seguridad.eliminarCliente(req.body);
     if (respuesta.success) {
         // Volver a mostrar el listado actualizado de clientes
