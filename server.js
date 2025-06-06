@@ -99,7 +99,21 @@ app.post('/nuevoturno',(req, res)=>{
 
     res.send(JSON.stringify(req.body))
 })
-
+//----------btn------------------
+app.post('/btnVolver', (req, res) => {
+    const respuesta = Seguridad.dameClientes(req.body);
+    if (respuesta.success) {
+        res.render('menu.ejs', {
+            url: "http://localhost:3000",
+            token: req.body.token
+        });
+    } else {
+        res.send(`
+            <h2>Token incorrecto</h2>
+            <a href="/">Volver al login</a>
+        `);
+    }
+});
 
 const PORT = 3000
 app.listen(PORT, ()=>{console.log(`Escuchando en el puerto  ${PORT} `)})

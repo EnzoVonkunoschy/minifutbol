@@ -45,5 +45,24 @@ function dameClientes(data){
     }
     
 }
+function validarToken(data){
+    console.log("--seguridad--")
+    console.log("data")
+    console.log(data)
+if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+    // válido
+    return {success: true}
+} else {
+    return {success: false}
+}
+}
 
-module.exports = {dameClientes,nuevoTurno, nuevoCliente}
+function verificarToken(data) {
+    if (data.token == 'lkjrt4v3wmtiqoprmmor98') {
+        return { success: true };
+    } else {
+        return { success: false };
+    }
+}
+
+module.exports = {dameClientes,nuevoTurno, nuevoCliente, verificarToken}
