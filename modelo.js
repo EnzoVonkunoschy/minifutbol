@@ -73,16 +73,5 @@ function setClientes(clientes){
     } 
 }
 
-function eliminarCliente(dni){
-    //Elimino el cliente
-    let clientes = getClientes()
-    clientes = clientes.filter(cliente => cliente.dni !== dni)
-    setClientes(clientes)
-    // Eliminar turnos del cliente
-    let turnos = getTurnos();
-    turnos = turnos.filter(turno => turno.cliente.dni !== dni);
-    setTurnos(turnos);
-    
-    return {success: true}
-}
-module.exports = {eliminarCliente, setClientes, getClientes, nuevoTurno, nuevoCliente}
+
+module.exports = {setClientes, getClientes, setTurnos, getTurnos, nuevoTurno, nuevoCliente}
