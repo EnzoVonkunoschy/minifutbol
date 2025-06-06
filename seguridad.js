@@ -46,4 +46,12 @@ function dameClientes(data){
     
 }
 
-module.exports = {dameClientes,nuevoTurno, nuevoCliente}
+function eliminarCliente(data){
+    if (data.token == 'lkjrt4v3wmtiqoprmmor98') {
+        return Controlador.eliminarCliente(data.dni);
+    } else {
+        return { success: false };
+    }
+}
+
+module.exports = {dameClientes,nuevoTurno, nuevoCliente, eliminarCliente};

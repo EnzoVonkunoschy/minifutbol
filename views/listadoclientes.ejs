@@ -15,15 +15,23 @@
                 <th>Nombre</th>
                 <th>DNI</th>
                 <th>Teléfono</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
             <% for (let i = 0; i < clientes.length; i++) { %>
                 <tr>
-                    <td><%= i+1%></td>
+                    <td><%= i + 1 %></td>
                     <td><%= clientes[i].nombre %></td>
                     <td><%= clientes[i].dni %></td>
                     <td><%= clientes[i].telefono %></td>
+                    <td>
+                        <form action="<%= url %>/eliminarCliente" method="POST" style="display:inline;">
+                            <input type="hidden" name="dni" value="<%= clientes[i].dni %>">
+                            <input type="hidden" name="token" value="<%= token %>">
+                            <button type="submit" title="Eliminar cliente">🗑️</button>
+                        </form>
+                    </td>
                 </tr>
             <% } %>
         </tbody>

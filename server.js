@@ -82,6 +82,20 @@ app.get ('/cliente',(req, res)=>{
     res.render('Cliente.ejs',{url : "http://localhost:3000"})
 })
 
+app.post('/eliminarCliente', (req, res) => {
+    console.log("BODY ENTRANTE A /eliminarCliente:", req.body);
+
+    const resultado = Seguridad.eliminarCliente(req.body);
+    if (resultado.success) {
+        res.render('menu.ejs', {
+            url: "http://localhost:3000",
+            token: "lkjrt4v3wmtiqoprmmor98"
+        });
+    } else {
+        res.send("Error: No se pudo eliminar el cliente");
+    }
+});
+
 /* 
 app.post('/nuevocliente',(req, res)=>{
     console.log(req.body)
@@ -105,7 +119,6 @@ app.post('/nuevoturno',(req, res)=>{
 
     res.send(JSON.stringify(req.body))
 })
-
 
 
 // --- Volver --------------------------------------------
