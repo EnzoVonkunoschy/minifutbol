@@ -83,13 +83,10 @@ app.get ('/cliente',(req, res)=>{
     res.render('Cliente.ejs',{url : "http://localhost:3000"})
 })
 
-app.post('/eliminarCliente'), (req, res) =>{
-    res.render('cliente.ejs',{url: "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98", clientes: resultado.clientes})
-}
 
 app.post('/eliminarCliente', (req, res) => {
     const resultado = Seguridad.eliminarCliente(req.body);
-    res.render('menu.ejs', {url: "http://localhost:3000", token: "lkjrt4v3wmtiqoprmmor98",clientes: resultado.clientes});
+    res.render('menu.ejs', {url: "http://localhost:3000", token: "lkjrt4v3wmtiqoprmmor98", clientes: resultado.clientes});
 });
 
 /* 
