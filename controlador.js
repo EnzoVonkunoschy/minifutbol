@@ -4,8 +4,25 @@ const Modelo = require('./modelo.js')
 function nuevoTurno(data) {
     try {
         console.log("--Controlador--");
-        const libre = data.libre === 'Libre';
-        const unTurno = new Clases.Turno(data.dia, data.turno, libre);
+        const libre = data.libre === 'libre';
+        if (!data.dia || !data.turno || !data.libre || !data.cliente) {
+            throw new Error("Datos incompletos para crear un turno.");
+        }
+        //Expresion regular para extraer los datos del string cliente
+        const extrae = /^(.+?) - DNI: (\d+) - Tel: (\d+)$/;
+        const match = data.cliente.match(extrae);
+        //Si no hay coincidencias tira un error
+        if (!match) {
+            throw new Error("Formato de cliente inválido.");
+        }
+        //Si hay match guardo los datos
+        const nombre = match[1];
+        const dni = match[2];
+        const telefono = match[3];
+        //Creo el cliente y el turno
+        const cliente = new Clases.Cliente(nombre, dni, telefono);
+        const unTurno = new Clases.Turno(data.dia, data.turno, data.libre, cliente);
+        //Imprimo el turno y lo guardo en el modelo
         console.log(unTurno);
         Modelo.nuevoTurno(unTurno);
     } catch (error) {
@@ -40,5 +57,33 @@ function dameClientes(data){
     return Modelo.getClientes()
 }
 
-module.exports = {dameClientes, nuevoTurno, nuevoCliente}
+function dameTurno(data) {
+    return Modelo.getTurnos()
+}
+
+
+function eliminarCliente(data) {
+
+    console.log("--Controlador--")
+    console.log(data)
+    const clientes = Modelo.getClientes()
+    const clienteIndex = clientes.findIndex(c => String(c.dni) === String(data.dni));
+    
+    if (clienteIndex !== -1) {
+        clientes.splice(clienteIndex, 1);
+        // Guardar los cambios en el archivo
+        const fs = require('fs');
+        fs.writeFileSync('./db/clientes.txt', JSON.stringify(clientes));
+        return { success: true };
+    } else {
+        return { success: false, message: "Cliente no encontrado." };
+    }
+
+
+
+
+
+}
+
+module.exports = {dameClientes, nuevoTurno, nuevoCliente, dameTurno, eliminarCliente}
 

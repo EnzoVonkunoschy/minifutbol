@@ -49,20 +49,23 @@ function validarToken(data){
     console.log("--seguridad--")
     console.log("data")
     console.log(data)
-if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
-    // válido
-    return {success: true}
-} else {
-    return {success: false}
-}
-}
-
-function verificarToken(data) {
-    if (data.token == 'lkjrt4v3wmtiqoprmmor98') {
-        return { success: true };
+    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+        // válido
+        return {success: true}
     } else {
-        return { success: false };
+        return {success: false}
     }
 }
 
-module.exports = {dameClientes,nuevoTurno, nuevoCliente, verificarToken}
+function eliminarCliente(data) {    
+    console.log("--seguridad--")
+    console.log("--eliminarCliente--")
+        if (data.token == 'lkjrt4v3wmtiqoprmmor98') {
+            return Controlador.eliminarCliente(data);
+        } else {
+            return { success: false, message: "Token inválido" };
+        }
+    
+}
+
+module.exports = {dameClientes,nuevoTurno, nuevoCliente, eliminarCliente, validarToken}
