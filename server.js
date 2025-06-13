@@ -114,6 +114,19 @@ app.post('/nuevoturno',(req, res)=>{
     }
 })
 
+app.post('/listarTurnos', (req, res)=>{
+    let resultado = Seguridad.listarTurnos(req.body)
+   if(resultado.success){
+    res.render('listadoturnos.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98",turnos: resultado.turnos})
+}})
+
+app.post('/eliminarTurno', (req, res)=>{
+    console.log(req.body)
+    let resultado = Seguridad.eliminarTurno(req.body)
+    if(resultado.success){
+        res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+    }
+})
 
 
 // --- Volver --------------------------------------------

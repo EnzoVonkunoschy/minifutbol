@@ -13,13 +13,7 @@
     <form action='<%=url%>/nuevoturno' method="POST">
         <p><label>Dia:&nbsp;</label><input type="date" name="dia"></p>
         <p><label>Turno:&nbsp;</label><input type="number" name="turno"></p>
-        <p>
-            <label>Estado:&nbsp;</label>
-            <select name="libre">
-                <option value="libre"  >Libre  </option>
-                <option value="ocupado">Ocupado</option>
-            </select>
-        </p>
+        <p><input type="hidden" name="libre" value="ocupado"></p>
         <p><label>Cliente:&nbsp;</label><input list="cliente" name="cliente">
             <datalist id="cliente">
                 <% for (let i = 0; i < clientes.length; i++) { %>

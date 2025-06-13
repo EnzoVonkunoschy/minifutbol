@@ -29,6 +29,30 @@ function nuevoTurno(data) {
         console.error("Error al crear un nuevo turno:", error.message);
     }
 }
+function listarTurnos(data) {
+    return Modelo.getTurnos();
+}
+
+function eliminarTurno(data) {
+    console.log ("--Controlador/EliminarTurno--")
+    console.log(data);
+    const dia = data.dia;
+    const hora = data.turno;
+    if (!dia || !hora) {
+        console.error("Dia u Hora no proporcionado para eliminar turno.");
+        return { success: false, message: "Dia y hora no proporcionados." };
+    }else{        
+        // Eliminar turnos 
+        let turnos = Modelo.getTurnos();
+        turnos = turnos.filter(turno => turno.dia !== dia || turno.hora !== hora);
+        Modelo.setTurnos(turnos);
+        console.log(`Turno con eliminado.`);
+        
+        return {success: true}
+    }  
+
+
+}
 
 function nuevoCliente(data) {
     try {
@@ -80,5 +104,5 @@ function eliminarCliente(data){
     }  
 }
 
-module.exports = {eliminarCliente, dameClientes, nuevoTurno, nuevoCliente}
+module.exports = {eliminarCliente, dameClientes, nuevoTurno, nuevoCliente, listarTurnos, eliminarTurno}
 
