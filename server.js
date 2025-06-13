@@ -38,7 +38,7 @@ app.post('/menu', (req, res) => {
     } else {
         // Si los datos no son válidos, se muestra un mensaje de error directamente
         res.send(`
-            <h2>Usuario, contraseña o token incorrectos</h2>
+            <h2>Usuario, contraseña o  token incorrectos</h2>
             <a href="/">Volver al login</a>
         `);
     }
