@@ -1,0 +1,60 @@
+/* style.css */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    /* Ajusta la opacidad del overlay. Un 80% (0.8) parece más cercano a la imagen. */
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('OIP.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden; /* Evita el scroll si el contenido es demasiado alto */
+}
+
+/* Estilos para el logo */
+.logo-img {
+    height: 70px; 
+    width: auto; 
+}
+
+/* Media query para hacer el logo más pequeño en pantallas pequeñas (móviles) */
+@media (max-width: 575.98px) { 
+    .logo-img {
+        height: 50px; 
+    }
+}
+
+/* Media query para pantallas un poco más grandes que móviles, pero no tan grandes como desktop */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .logo-img {
+        height: 60px; 
+    }
+}
+
+
+/* Estilos para los inputs personalizados */
+.form-control.custom-input {
+    background-color: #f0f0f0; 
+    color: #33333352; 
+    border: none; 
+    height: 55px; 
+    font-size: 1.2rem; 
+    padding: 10px 15px; 
+}
+
+
+
+
+/* Estilo personalizado para el botón "Iniciar sesión" */
+.btn-custom-login {
+    background-color: #0b5406; 
+    color: white; 
+    border: none; 
+    height: 60px; 
+    font-size: 1.4rem; 
+    font-weight: bold; 
+}
+
+.btn-custom-login:hover {
+    background-color: #004801; 
+    color: white;
+    border: none;
+}

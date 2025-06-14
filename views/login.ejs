@@ -1,20 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mini Futbol</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Estilo/style.css">
 </head>
 <body>
-    <h1>Minifutbo iES-9024</h1>
-    
-    <form action='<%=url%>/menu' method="POST">
-        <p><label>Usuario:&nbsp;    </label><input type="text"     name="usuario">   </p>
-        <p><label>Constraseña:&nbsp;</label><input type="password" name="contrasena"></p>
 
-        <input type="hidden" name="token" value="<%=token%>">
-        <input type="submit" value="Aceptar">
-    </form>
-    
+    <div class="position-fixed top-0 start-0 m-4">
+        <img src="/Estilo/logo.png" alt="Logo Mini Futbol" class="img-fluid logo-img">
+    </div>
+
+    <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4  p-4 rounded text-center text-white shadow-none">
+            
+            <h1 class="mb-5 display-2 fw-bold">Iniciar sesión</h1>
+
+            <form action="<%= url %>/menu" method="POST">
+                <div class="mb-4">
+                    <input type="text" name="usuario" class="form-control custom-input" placeholder="Usuario" required>
+                </div>
+                <div class="mb-4">
+                    <input type="password" name="contrasena" class="form-control custom-input" placeholder="Contraseña" required>
+                </div>
+                <input type="hidden" name="token" value="<%= token %>">
+                <button type="submit" class="btn btn-custom-login w-100 btn-lg">Iniciar sesión</button>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>

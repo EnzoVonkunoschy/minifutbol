@@ -1,0 +1,87 @@
+    .header {
+      background-color: #1b3b1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .logo-img {
+      height: 30px;
+    }
+
+    .form-title {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .menu-section {
+      background-color: white;
+      padding: 2rem 1rem;
+      max-width: 400px;
+      margin: 0 auto;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .menu-item {
+      background-color: #eee;
+      color: #333;
+      padding: 0.8rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: flex;
+    }
+
+    .menu-item input {
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .submit-btn {
+      background-color: #1b3b1a;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .logout-btn {
+      color: #aaa;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .logout-btn a {
+      text-decoration: none;
+      color: #aaa;
+    }
+/* ==================== LOGO SUPERIOR IZQUIERDO ==================== */
+.logo-container {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+/* Logo aún más pequeño en móviles */
+@media (max-width: 575.98px) {
+  .logo-img {
+    height: 40px;
+  }
+}
