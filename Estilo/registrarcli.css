@@ -1,0 +1,106 @@
+/* === Registrar cliente === */
+.titulo-header {
+  background-color: #1b3b1a;
+  padding: 70px 0;
+  margin-bottom: 70px;
+}
+
+
+.titulo-header h1 {
+  color: white;
+  font-size: 48px;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* === Fondo del body === */
+body {
+  background-color: #f8f9fa;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* === Contenedor del formulario === */
+.registro-container {
+  background-color: #ffffff; /* fondo blanco */
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+.registro-container form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e9e9e9;
+  font-size: 16px;
+}
+
+.registro-container form input:focus {
+  outline: 2px solid #1b3b1a;
+}
+
+/* === Botón Registrar === */
+.btn-registrar {
+  width: 100%;
+  background-color: #1b3b1a;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-registrar:hover {
+  background-color: #264d27;
+}
+
+/* === Botón Volver === */
+.btn-volver {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #e4ece4;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #041a02;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-volver:hover {
+  background-color: #1b3b1a;
+  color: white;
+}
+/* === Estilo para el SELECT igual que los input === */
+.registro-container form select {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e9e9e9;
+  font-size: 16px;
+  color: #333;
+  appearance: none; /* Oculta la flecha nativa en algunos navegadores */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Negrita + gris solo para elementos del formulario */
+.registro-container form input,
+.registro-container form select {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  color: #444;
+}

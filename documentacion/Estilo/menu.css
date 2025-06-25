@@ -1,0 +1,109 @@
+/* ==================== LOGO ==================== */
+.logo-img {
+  height: 70px;
+  width: auto;
+}
+
+/* Logo responsive */
+@media (max-width: 575.98px) {
+  .logo-img {
+    height: 50px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .logo-img {
+    height: 60px;
+  }
+}
+
+/* ==================== GENERALES ==================== */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+/* ==================== ENCABEZADO ==================== */
+.header {
+  background-color: #1b3b1a;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.field-wrapper {
+  margin-top: 80px; /* Espacio para el logo */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.field-img {
+  width: 250px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ==================== MENÚ ==================== */
+.menu-section {
+  background-color: #fff;
+  padding: 2rem 1rem;
+}
+
+/* Estilo de los botones del menú */
+.menu-item {
+  background-color: #1b3b1a;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+  border: none;
+  width: 100%;
+}
+
+.menu-item:hover {
+  background-color: #264d27;
+}
+
+.menu-item svg {
+  margin-right: 1rem;
+}
+
+/* Botón de cerrar sesión */
+.logout-btn {
+  color: #ccc;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Responsivo: centrar menú en pantallas medianas y grandes */
+@media (min-width: 768px) {
+  .menu-section {
+    max-width: 400px;
+    margin: auto;
+  }
+}
+/* ==================== LOGO SUPERIOR IZQUIERDO ==================== */
+.logo-container {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+/* Logo aún más pequeño en móviles */
+@media (max-width: 575.98px) {
+  .logo-img {
+    height: 40px;
+  }
+}

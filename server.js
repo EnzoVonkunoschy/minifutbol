@@ -106,5 +106,8 @@ app.get('/menu', (req, res) => {
   });
 });
 
+//-----estilo de la app --------------------------------
+app.use('/Estilo', express.static(path.join(__dirname, 'Estilo')));
+
 const PORT = 3000
 app.listen(PORT, ()=>{console.log(`Escuchando en el puerto  ${PORT} `)})

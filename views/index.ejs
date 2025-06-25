@@ -3,26 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registrar Turno</title>
+     <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tu CSS personalizado -->
+  <link rel="stylesheet" href="/Estilo/registrarcli.css">
+   <link rel="stylesheet" href="Estilo/menu.css">
 </head>
+
 <body>
+  <div class="logo-container p-3">
+  <img src="/Estilo/logo.png" alt="Logo Mini Futbol" class="logo-img">
+</div>
 
-
-    <h1>Minifutbo iES-9024</h1>
+    <div class="titulo-header text-center">
+    <h1>Registrar turno</h1>
+  </div>
     
+     <div class="registro-container">
     <form action='<%=url%>/nuevoturno' method="POST">
-        <p><label>Dia:&nbsp;</label><input type="date" name="dia"></p>
-        <p><label>Turno:&nbsp;</label><input type="number" name="turno"></p>
-        <p>
-            <label>Estado:&nbsp;</label>
-            <select name="libre">
-                <option value="libre"  >Libre  </option>
-                <option value="ocupado">Ocupado</option>
-            </select>
-        </p>
-        <input type="hidden" name="token" value="lkjrt4v3wmtiqoprmmor98">
-        <input type="submit" value="Agregar Turno">
+      <input type="date" name="dia" placeholder="Día del turno" required>
+      <input type="number" name="turno" placeholder="Turno" required>
+      
+      <select name="libre" required>
+        <option value=""> Estado </option>
+        <option value="libre">Libre</option>
+        <option value="ocupado">Ocupado</option>
+      </select>
+      
+      <input type="hidden" name="token" value="lkjrt4v3wmtiqoprmmor98">
+      <button type="submit" class="btn-registrar">Registrar</button>
     </form>
+  </div>
      
     <!--        
     <h1>Minifutbol IES-9024</h1>
@@ -33,6 +45,10 @@
         <button type="submit">Enviar</buton>
     </form>-->
     
- <%- include('part/volver') %>
+      <div class="text-center mt-3">
+      <a href="/menu" class="btn-volver">Volver</a>
+    </div>
+
+  
 </body>
 </html>
