@@ -18,6 +18,21 @@ function nuevoTurno(data){
     }
 } 
 
+function dameTurnos(data){
+    console.log("--seguridad--")
+    console.log("data")
+    console.log(data)
+    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+        const turnos = Controlador.dameTurnos(data)
+        return {success: true, turnos: turnos}
+
+    }else{
+        console.log("No se puede acceder a los clientes")
+        return {success: false}
+    }
+    
+}
+
 function nuevoCliente(data){
     console.log("--seguridad--")
     console.log("data")
@@ -56,4 +71,4 @@ function eliminarCliente(data){
     }
 }
 
-module.exports = {eliminarCliente, dameClientes,nuevoTurno, nuevoCliente}
+module.exports = {eliminarCliente, dameClientes,nuevoTurno, nuevoCliente, dameTurnos}

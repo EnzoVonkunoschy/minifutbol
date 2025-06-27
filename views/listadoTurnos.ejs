@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Minifutbol IES-9024</h1>
+    <h2>Listado Turno</h2> 
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nro Turno</th>
+                <th>Dia</th>
+                <th>Turno</th>
+                <th>Cliente</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            
+                <%for(let i=0; i < turnos.length; i++ ){ %>
+                    <tr>
+                        <td><%= i+1 %></td>
+                        <td><%= turnos[i].dia %></td>
+                        <td><%= turnos[i].hora %></td>
+                        <td><%= turnos[i].cliente.nombre %></td>
+                        <td>
+                        <form action="<%=url%>/eliminarTurno" method="POST">
+                            <input type="hidden" name="dia" value="<%= turnos[i].dia %>">
+                            <input type="hidden" name="hora" value="<%=turnos[i].hora %> %>">
+                            <input type="hidden" name="token" value="<%=token%>">
+                            <input type="submit" value="Eliminar">
+                        </form>
+                        </td>
+                    </tr>
+                <% } %>
+        </tbody>
+        
+        
+    </table>
+
+
+    <br>
+    <form action="<%=url%>/menuGeneral" method="POST">
+        <input type="hidden" name="token" value="<%=token%>">
+        <input type="submit" value="Volver">
+    </form>
+</body>
+</html>

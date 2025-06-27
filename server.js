@@ -54,6 +54,11 @@ app.post('/dameClientes', (req, res)=>{
     res.render('listadoclientes.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98",clientes: resultado.clientes})
 }})
 
+app.post('/dameTurnos', (req, res)=>{
+    let resultado = Seguridad.dameTurnos(req.body)
+    res.render('listadoTurnos.ejs',{url: "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98",turnos: resultado.turnos})
+})
+
 app.post('/eliminarCliente', (req, res)=>{
     console.log(req.body)
     let resultado = Seguridad.eliminarCliente(req.body)

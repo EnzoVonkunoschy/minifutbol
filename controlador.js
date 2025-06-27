@@ -57,6 +57,10 @@ function dameClientes(data){
     return Modelo.getClientes()
 }
 
+function dameTurnos(data){
+    return Modelo.getTurnos()
+}
+
 function eliminarCliente(data){
     console.log("--Controlador--")
     const dni = data.dni;
@@ -80,5 +84,5 @@ function eliminarCliente(data){
     }  
 }
 
-module.exports = {eliminarCliente, dameClientes, nuevoTurno, nuevoCliente}
+module.exports = {eliminarCliente, dameClientes, nuevoTurno, nuevoCliente, dameTurnos}
 
