@@ -12,7 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "nodemon": "^3.1.10"
-  }
+  },
+  "devDependencies": {}
 }
