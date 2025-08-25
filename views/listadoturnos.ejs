@@ -41,7 +41,7 @@
               <input type="hidden" name="token" value="<%= token %>">
               <input type="hidden" name="dia" value="<%= turnos[i].dia %>">
               <input type="hidden" name="turno" value="<%= turnos[i].hora %>">
-              <button type="submit" class="btn-registrar" style="font-size: 14px;">Eliminar</button>
+              <button type="submit" class="btn-registrar" style="font-size: 14px;" onclick="return confirm('¿Desea eliminar el turno?')">Eliminar</button>
             </form>
           </td>
         </tr>
