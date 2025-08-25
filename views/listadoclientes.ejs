@@ -36,7 +36,7 @@
     <td><%= clientes[i].dni %></td>
     <td><%= clientes[i].telefono %></td>
     <td>
-      <form action="/eliminarCliente" method="post" style="margin: 0;">
+      <form action="/eliminarCliente" method="post" onsubmit="return confirmarEliminarCliente()"style="margin: 0;">
         <input type="hidden" name="token" value="<%= token %>">
         <input type="hidden" name="dni" value="<%= clientes[i].dni %>">
         <button type="submit" class="btn-registrar" style="font-size: 14px;">Eliminar</button>
@@ -57,5 +57,10 @@
       <button type="submit" class="btn-volver">Volver</button>
     </form>
 
+    <script>
+    function confirmarEliminarCliente() {
+      return confirm("¿Seguro que deseas eliminar este Cliente?");
+    }
+    </script>
 </body>
 </html>

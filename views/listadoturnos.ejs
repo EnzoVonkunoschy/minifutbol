@@ -37,12 +37,17 @@
           <td><%= turnos[i].hora %></td>
           <td><%= turnos[i].cliente.nombre %></td>
           <td>
-            <form action="/eliminarTurno" method="post" style="margin: 0;">
+            <form action="/eliminarTurno" method="post" onsubmit="return confirmarEliminarTurno()" style="margin: 0;">
               <input type="hidden" name="token" value="<%= token %>">
               <input type="hidden" name="dia" value="<%= turnos[i].dia %>">
               <input type="hidden" name="turno" value="<%= turnos[i].hora %>">
               <button type="submit" class="btn-registrar" style="font-size: 14px;">Eliminar</button>
             </form>
+            <script>
+            function confirmarEliminarTurno() {
+              return confirm("¿Seguro que deseas eliminar este Turno?");
+            }
+            </script>
           </td>
         </tr>
       <% } } %>
