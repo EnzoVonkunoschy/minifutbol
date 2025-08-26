@@ -233,3 +233,16 @@ body {
   margin-top: 2rem;
   font-size: 0.9rem;
 }
+/* Modal de confirmacion */
+.modal-header.bg-verde {
+      background-color: #1b3b1a !important;
+      color: white !important;
+    }
+    .btn-verde {
+      background-color: #1b3b1a;
+      color: white;
+    }
+    .btn-verde:hover {
+      background-color: #2d5c2c;
+      color: white;
+    }

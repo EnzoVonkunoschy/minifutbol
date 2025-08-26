@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/Estilo/registrarcli.css">
-    <title>Listado Turnos</title>
+    <title>Lista de Turnos</title>
 </head>
 <body>
 <div class="logo-container">
@@ -41,7 +41,9 @@
               <input type="hidden" name="token" value="<%= token %>">
               <input type="hidden" name="dia" value="<%= turnos[i].dia %>">
               <input type="hidden" name="turno" value="<%= turnos[i].hora %>">
-              <button type="submit" class="btn-registrar" style="font-size: 14px;">Eliminar</button>
+              <button type="button" class="btn-registrar btn-eliminar" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                Eliminar
+              </button>
             </form>
           </td>
         </tr>
@@ -55,6 +57,43 @@
       <input type="hidden" name="token" value="<%= token %>">
       <button type="submit" class="btn-volver">Volver</button>
     </form>
-    
+    <!-- Modal Bootstrap -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-verde">
+        <h5 class="modal-title">Confirmar eliminación</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        ¿Está seguro que desea eliminar este turno?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" id="btnConfirmar" class="btn btn-danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let formAEliminar = null;
+
+  // Guardar el formulario del botón presionado
+  document.querySelectorAll(".btn-eliminar").forEach(btn => {
+    btn.addEventListener("click", function() {
+      formAEliminar = this.closest("form");
+    });
+  });
+
+  // Confirmar eliminación
+  document.getElementById("btnConfirmar").addEventListener("click", function() {
+    if (formAEliminar) {
+      formAEliminar.submit();
+    }
+  });
+</script>
 </body>
 </html>
