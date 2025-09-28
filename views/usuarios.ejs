@@ -28,17 +28,23 @@
     </thead>
     <tbody>
       
-    <% for(let i=0 ; i<usuarios.length ; i++){ %>
+      <% for(let i=0 ; i<usuarios.length ; i++){ %>
           <tr style="text-align:center;"></tr>
         <td><%=usuarios[i].nombre%></td>
         <td><%=usuarios[i].contacto%></td>
         <td><%=usuarios[i].rol%></td>
-        <td>
-            <!--eliminar usuario -->
-        </td>
-        <% } %>
-    </tr>
-    
+          <td>
+          <form action="/eliminarUsuario" method="POST" style="margin:0;">
+    <input type="hidden" name="token" value="<%= token %>">
+    <input type="hidden" name="contacto" value="<%= usuarios[i].contacto %>">
+    <button type="submit" class="btn btn-danger btn-sm"
+        onclick="return confirmarEliminacion()">
+        Eliminar
+    </button>
+</form> 
+          </td>
+        </tr>
+      <% } %>
     </tbody>
 </table>
 <br>

@@ -136,6 +136,16 @@ function nuevoUsuario(data){
 }
 
 function eliminarUsuario(data){
+    console.log("--Controlador eliminarUsuario--");
+    let usuarios = Modelo.getUsuarios(); //leemos el archivo usuarios.txt
+    // convierte el txt en un array de obj usuarios
+ // Filtrar por contacto
+    usuarios = usuarios.filter(u => u.contacto !== data.contacto);
+    // solo nos quedamos con contactos que sean distintos a data.cont
+    Modelo.setUsuarios(usuarios);
+    // trae a set.usuarios p guardar de nuevo el txt
+    console.log("holaaaaaaa");
+    return { success: true, usuarios };
 
 }
 

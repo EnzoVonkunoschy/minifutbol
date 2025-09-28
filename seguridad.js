@@ -98,10 +98,10 @@ function nuevoUsuario(data){
 function eliminarUsuario(data){
     console.log("--seguridad--")
     console.log(data)
-    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+    if(data.token === 'lkjrt4v3wmtiqoprmmor98'){
         Controlador.eliminarUsuario(data);
     }else{
-     
+     return {success: false};
     }    
 }
 
@@ -111,7 +111,7 @@ function dameUsuarios(data){
     if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
         return Controlador.dameUsuarios(data);
     }else{
-       return new Error("...ups!")
+       return {success: false};
     }    
 }
 
